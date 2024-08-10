@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
@@ -20,9 +20,12 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
+        // navigate("/");
       })
       .catch((error) => {
         // An error happened.
+        console.log(error);
+
         navigate("/error");
       });
   };
@@ -58,7 +61,7 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className="fixed w-screen px-8 py-2 md:px-16 md:py-4 bg-gradient-to-b from-gray-800 z-10 flex flex-col md:flex-row justify-between gap-2">
+    <div className="fixed w-full px-8 py-2 md:px-16 md:py-4 bg-gradient-to-b from-gray-800 z-10 flex flex-col md:flex-row justify-between gap-2">
       <img className="w-32 md:w-40 mx-auto md:mx-0" src={LOGO_URL} alt="logo" />
       {user && (
         <div className="flex justify-between items-center gap-4">

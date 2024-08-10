@@ -8,9 +8,9 @@ const MainMovieVideo = ({ movie_id }) => {
   if (!movieTrailer) return;
 
   return (
-    <div className=" w-screen">
+    <div className=" w-full">
       <iframe
-        className="w-screen aspect-video"
+        className="w-full aspect-video"
         src={
           "https://www.youtube.com/embed/" +
           movieTrailer +
